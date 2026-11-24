@@ -33,7 +33,7 @@ GitHub Actions builds and deploys the site. For public repositories, [standard G
    ```
 
    Optionally, add required reviewers to the `production` environment for an extra approval step.
-4. Publish a release, for example `gh release create v0.1.0 --generate-notes`. The first deploy creates the `koveesoft` Worker at `https://koveesoft.<your-subdomain>.workers.dev`. Set a `SITE_URL` repository variable to show that link on deployments.
+4. Publish a release, for example `gh release create 0.1.0 --generate-notes`. The first deploy creates the `koveesoft` Worker at `https://koveesoft.<your-subdomain>.workers.dev`. Set a `SITE_URL` repository variable to show that link on deployments.
 
 ### Custom domain
 
