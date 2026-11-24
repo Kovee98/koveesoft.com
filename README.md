@@ -54,6 +54,17 @@ Nuxt is configured to emit `games.html` (not `games/index.html`), so Cloudflare 
 
 - Update public profile URLs in [`app/data/contact.ts`](./app/data/contact.ts). They render as icon links in the footer of every page (with `rel="me"` and accessible names) and in the home page's Organization structured data as `sameAs`. Use visitor-facing profile pages, not admin links. The support email and Discord username are shown next to the icons.
 - Platform icons come from [Simple Icons](https://simpleicons.org/) (CC0). Simple Icons doesn't include LinkedIn, so that one is a hand-drawn path in `contact.ts`.
-- The temporary faceted "K" mark is [`public/studio-mark.svg`](./public/studio-mark.svg). It's used for the favicon, the header, and the home page art. The root `logo.svg` is untouched and not served. When the Inkscape logo is ready, update the header and favicon and refresh the social preview image.
+- The master logo is the Inkscape file [`logo.svg`](./logo.svg). It isn't served because it contains hidden reference images. After editing it, regenerate every logo asset from Git Bash (needs Inkscape, ImageMagick 7, and `npm ci`):
+
+  ```bash
+  ./scripts/brand.sh
+  ```
+
+  [`scripts/brand.sh`](./scripts/brand.sh) exports the layer labeled "K" (set `LOGO_LAYER` for another layer), flattens it into small SVGs with [`scripts/brand-mark.mjs`](./scripts/brand-mark.mjs), and renders the PNGs. It fixes the faint seams between facets on its own: a solid backing in the facets' average color goes underneath, and each facet gets a hairline stroke in its own color, all clipped to the K's outline. So `logo.svg` doesn't need a backing layer. Outputs:
+  - [`public/studio-mark.svg`](./public/studio-mark.svg): header, home page art, and social card, with about 10% padding.
+  - [`public/favicon.svg`](./public/favicon.svg), `public/favicon.ico` (16/32/48 px), and `public/apple-touch-icon.png` (180 px): browser and home-screen icons.
+  - `public/logo-512.png`: the `logo` in the home page's Organization structured data.
+  - `public/social-card.png`: rendered from [`design/social-card.svg`](./design/social-card.svg).
+  - [`design/avatars/`](./design/avatars/): 1080 × 1080 profile pictures for social accounts on white, light-gray, navy (`avatar-dark`), or transparent backgrounds. The K fills 60% of the square, so circular crops don't clip it. `mark-transparent-2048.png` is the K alone, unpadded, for other uses.
 - Typefaces are Montserrat (headings and labels) and Inter (text), both SIL Open Font License, self-hosted via Fontsource.
-- Edit [`design/social-card.svg`](./design/social-card.svg) in Inkscape and export it as `public/social-card.png` at 1200 × 630. Its text is already converted to outlines, so the fonts don't need to be installed.
+- Edit [`design/social-card.svg`](./design/social-card.svg) in Inkscape, then run `./scripts/brand.sh` to export it as `public/social-card.png` at 1200 × 630. Its text is already converted to outlines, so the fonts don't need to be installed.

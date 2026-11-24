@@ -14,6 +14,7 @@ useHead({
       '@type': 'Organization',
       name: 'Koveesoft',
       url: `${siteUrl}/`,
+      logo: `${siteUrl}/logo-512.png`,
       description,
       email,
       sameAs: socialLinks.map(({ url }) => url),
