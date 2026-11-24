@@ -9,10 +9,11 @@
     "not_found_handling": "404-page"
   },
   "workers_dev": true,
-  "preview_urls": false
-  // Once koveesoft.com's DNS is on this Cloudflare account, add:
-  // "routes": [
-  //   { "pattern": "koveesoft.com", "custom_domain": true },
-  //   { "pattern": "www.koveesoft.com", "custom_domain": true }
-  // ]
+  "preview_urls": false,
+  // Cloudflare creates the DNS records and certificates for these on deploy.
+  // www is redirected to the apex by a zone Redirect Rule (see README).
+  "routes": [
+    { "pattern": "koveesoft.com", "custom_domain": true },
+    { "pattern": "www.koveesoft.com", "custom_domain": true }
+  ]
 }

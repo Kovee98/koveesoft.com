@@ -37,7 +37,9 @@ GitHub Actions builds and deploys the site. For public repositories, [standard G
 
 ### Custom domain
 
-When `koveesoft.com`'s DNS is on the same Cloudflare account, uncomment the `routes` block in [`wrangler.jsonc`](./wrangler.jsonc) and publish another release. Cloudflare then creates the DNS records and certificates. After that, set `"workers_dev": false` so the site only answers on its canonical domain, and submit `https://koveesoft.com/sitemap.xml` in Google Search Console.
+Both `koveesoft.com` and `www.koveesoft.com` are attached to the Worker as custom domains in [`wrangler.jsonc`](./wrangler.jsonc); Cloudflare creates their DNS records and certificates on deploy. A hostname that already has a DNS record can't be claimed, so delete any existing `A`/`AAAA`/`CNAME` records for `@` and `www` first.
+
+The site is served from the apex. A zone Redirect Rule (**Rules → Redirect Rules → Redirect from WWW to root** template, 301, preserve path and query) sends `www` there. After the domain works, set `"workers_dev": false` so the site only answers on its canonical domain, and submit `https://koveesoft.com/sitemap.xml` in Google Search Console.
 
 To roll back, use **Workers & Pages > koveesoft > Deployments** in Cloudflare, or run `npx wrangler rollback`.
 
