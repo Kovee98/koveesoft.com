@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="61 30 340 340">
+  <title>Koveesoft</title>
+  <g stroke-width=".8" stroke-linejoin="round">
+    <path d="M90 40h88l-44 160z" fill="#2a5bb5" stroke="#2a5bb5"/>
+    <path d="M90 40l44 160-44 160z" fill="#1d4699" stroke="#1d4699"/>
+    <path d="M178 40v160h-44z" fill="#3366c0" stroke="#3366c0"/>
+    <path d="M90 360l44-160 44 160z" fill="#173d88" stroke="#173d88"/>
+    <path d="M134 200h44v160z" fill="#21499c" stroke="#21499c"/>
+    <path d="M300 40h72l-67 70z" fill="#62a3ee" stroke="#62a3ee"/>
+    <path d="M300 40l5 70-127 40z" fill="#3f7fd6" stroke="#3f7fd6"/>
+    <path d="M178 150l127-40-67 68z" fill="#2f69c4" stroke="#2f69c4"/>
+    <path d="M305 110l67-70-134 138z" fill="#4a8ade" stroke="#4a8ade"/>
+    <path d="M178 150l60 28-60 54z" fill="#1f4c9f" stroke="#1f4c9f"/>
+    <path d="M178 232l60-54 62 102z" fill="#2d63bd" stroke="#2d63bd"/>
+    <path d="M238 178l134 182-72-80z" fill="#3a76cf" stroke="#3a76cf"/>
+    <path d="M178 232l122 48-18 80z" fill="#1a418f" stroke="#1a418f"/>
+    <path d="M300 280l72 80h-90z" fill="#24529f" stroke="#24529f"/>
+  </g>
+</svg>

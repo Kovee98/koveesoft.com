@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "koveesoft",
+  "compatibility_date": "2026-11-24",
+  // Static assets only: no Worker script runs, so requests are free and unlimited.
+  "assets": {
+    "directory": "./.output/public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true,
+  "preview_urls": false
+  // Once koveesoft.com's DNS is on this Cloudflare account, add:
+  // "routes": [
+  //   { "pattern": "koveesoft.com", "custom_domain": true },
+  //   { "pattern": "www.koveesoft.com", "custom_domain": true }
+  // ]
+}
