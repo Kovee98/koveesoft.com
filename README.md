@@ -66,5 +66,6 @@ Nuxt is configured to emit `games.html` (not `games/index.html`), so Cloudflare 
   - `public/logo-512.png`: the `logo` in the home page's Organization structured data.
   - `public/social-card.png`: rendered from [`design/social-card.svg`](./design/social-card.svg).
   - [`design/avatars/`](./design/avatars/): 1080 × 1080 profile pictures for social accounts on white, light-gray, navy (`avatar-dark`), or transparent backgrounds. The K fills 60% of the square, so circular crops don't clip it. `mark-transparent-2048.png` is the K alone, unpadded, for other uses.
+  - [`design/banners/`](./design/banners/): profile banners for X (1500 × 500), Bluesky (3000 × 1000), LinkedIn (1512 × 256), YouTube (2560 × 1440), and Reddit (1920 × 384). Each is the home page's navy background, redrawn at that size by [`scripts/brand-banner.mjs`](./scripts/brand-banner.mjs), saved as JPEG to stay under upload limits. To change the look, edit `.home-art` in `site.css` and the matching gradients in that script.
 - Typefaces are Montserrat (headings and labels) and Inter (text), both SIL Open Font License, self-hosted via Fontsource.
 - Edit [`design/social-card.svg`](./design/social-card.svg) in Inkscape, then run `./scripts/brand.sh` to export it as `public/social-card.png` at 1200 × 630. Its text is already converted to outlines, so the fonts don't need to be installed.

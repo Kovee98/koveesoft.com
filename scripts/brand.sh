@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Regenerates every logo asset (website icons, social card, profile pictures) from logo.svg.
+# Regenerates every logo asset (website icons, social card, profile pictures) from logo.svg,
+# plus the profile banners.
 #
 #   ./scripts/brand.sh
 #
@@ -76,6 +77,16 @@ compose 1080 60 none design/avatars/avatar-transparent-1080.png
 render "$tmp/mark.svg" 2048 design/avatars/mark-transparent-2048.png
 ink design/social-card.svg -w 1200 -h 630 --export-filename=public/social-card.png
 
+echo "Writing banners"
+mkdir -p design/banners
+for spec in x:1500x500 bluesky:3000x1000 linkedin:1512x256 youtube:2560x1440 reddit:1920x384; do
+  name="${spec%%:*}" size="${spec#*:}"
+  node scripts/brand-banner.mjs "${size%x*}" "${size#*x}" "$tmp/banner.svg"
+  ink "$tmp/banner.svg" --export-filename="$tmp/banner.png"
+  # Smooth gradients compress ~20x smaller as JPEG, keeping banners under upload limits (Bluesky ~1 MB).
+  magick "$tmp/banner.png" -quality 95 -sampling-factor 4:4:4 -strip "design/banners/banner-$name-$size.jpg"
+done
+
 rm -rf "$tmp"
 cat <<'EOF'
 
@@ -83,6 +94,7 @@ Done. Updated:
   public/favicon.svg, favicon.ico, apple-touch-icon.png, studio-mark.svg, logo-512.png, social-card.png
   design/avatars/avatar-{white,light,dark,transparent}-1080.png  (profile pictures)
   design/avatars/mark-transparent-2048.png  (just the K, no padding, for other uses)
+  design/banners/banner-<platform>-<size>.jpg  (profile banners, the site's navy background)
 
 To publish the website:
   git add -A && git commit -m "Update logo" && git push
