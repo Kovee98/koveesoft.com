@@ -48,6 +48,8 @@ To roll back, use **Workers & Pages > koveesoft > Deployments** in Cloudflare, o
 - `/`: a single-screen landing page (no scrolling on common phone, tablet, and desktop sizes) with one destination, **Games**.
 - `/games`: the game library. Each entry in the `games` list in [`app/pages/games.vue`](./app/pages/games.vue) is either a real title (name, tagline, genre, logo, and background color) or an empty "Coming soon" placeholder slot. Put game logos in `public/images/` as SVG so they stay sharp at any size (`paper-sudoku.svg` is a cleaned copy of the Paper layer from the Paper Sudoku store art, with text converted to paths). Add new routes to [`public/sitemap.xml`](./public/sitemap.xml).
 
+- `/terms` and `/privacy`: the Terms of Service and Privacy Policy, covering this site and the self-hosted Postiz instance Koveesoft uses to publish to its own social accounts. Platform developer apps (TikTok, Meta, Google) link to these URLs, and TikTok requires them to be visible on the site without opening a menu, so keep the footer links. If the data the publishing tool stores or the platforms it connects to change, update both pages.
+
 Nuxt is configured to emit `games.html` (not `games/index.html`), so Cloudflare serves the clean URL `/games` and redirects `/games/` and `/games.html` to it. Unknown paths get `404.html` with a 404 status.
 
 ## Brand and social links

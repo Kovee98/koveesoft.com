@@ -23,6 +23,12 @@ const year = new Date().getUTCFullYear()
         <span class="sr-only">Discord username:</span> {{ discord.username }}
       </span>
     </div>
-    <small class="copyright">&copy; {{ year }} Koveesoft</small>
+    <div class="footer-meta">
+      <nav class="legal-links" aria-label="Legal">
+        <NuxtLink to="/terms">Terms</NuxtLink>
+        <NuxtLink to="/privacy">Privacy</NuxtLink>
+      </nav>
+      <small class="copyright">&copy; {{ year }} Koveesoft</small>
+    </div>
   </footer>
 </template>

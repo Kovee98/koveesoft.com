@@ -21,6 +21,8 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { prerender: true, noScripts: true },
     '/games': { prerender: true, noScripts: true },
+    '/terms': { prerender: true, noScripts: true },
+    '/privacy': { prerender: true, noScripts: true },
   },
   nitro: {
     // Emit games.html instead of games/index.html so Cloudflare serves the clean /games URL.
