@@ -2,7 +2,7 @@
 import { siteUrl } from '~/composables/useSiteSeo'
 import { email, socialLinks } from '~/data/contact'
 
-const description = 'Koveesoft is an independent software studio, starting with games. Follow along for upcoming releases.'
+const description = 'Koveesoft is an independent software studio making games and software.'
 
 useSiteSeo({ path: '/', title: 'Koveesoft | Independent Software Studio', description })
 
